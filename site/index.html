@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Teachable Machine — Image demo</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="card">
+<h1>Demo: Teachable Machine — Image (prosty frontend)</h1>
+<p class="small">Wklej URL do wyeksportowanego modelu TensorFlow.js (katalog zawierający model.json).</p>
+
+
+<label for="modelUrl">Model URL (katalog z model.json):</label>
+<input id="modelUrl" type="url" placeholder="np. https://your-host.com/model/" />
+<div class="controls">
+<button id="loadModel">Wczytaj model</button>
+<button id="clear">Wyczyść</button>
+<button id="predict" disabled>Przewidź</button>
+<button id="autoPredict" disabled>Auto: OFF</button>
+</div>
+
+
+<div class="row">
+<div class="col">
+<div id="dropZone" class="drop">
+<div>
+<div class="drop-title">Przeciągnij i upuść obraz tutaj</div>
+<div class="small">lub kliknij, aby wybrać. Obsługuje PNG, JPG, GIF</div>
+<input id="fileInput" type="file" accept="image/*" style="display:none" />
+</div>
+</div>
+<div id="previewWrap" style="display:none">
+<div class="top">Podgląd obrazu:</div>
+<img id="preview" class="preview" alt="preview" />
+</div>
+</div>
+
+
+<div class="side">
+<div class="top">Wyniki:</div>
+<div id="status" class="small">Model nie wczytany.</div>
+<div id="results"></div>
+</div>
+</div>
+
+
+<hr />
+<div class="small">Instrukcje nagrania demonstracji: przygotuj 3 zarezerwowane obrazy (po jednym z każdej klasy). W filmie pokaż: wczytanie modelu, przeciągnięcie obrazu testowego, odczytanie przewidywanej klasy i procentów. Nagranie ekranu + głosowe wyjaśnienie wystarczy.</div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
